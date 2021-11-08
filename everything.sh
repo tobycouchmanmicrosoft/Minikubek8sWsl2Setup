@@ -27,11 +27,14 @@ echo "alias k=kubectl" | tee -a ~/.bash_aliases
 
 sudo curl -o /etc/docker/daemon.json --create-dirs https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/daemon.json
 
-echo "***minikube"
+echo "starting docker"
+sudo /mnt/c/Windows/System32/wsl.exe -d ubuntu sh -c "nohup sudo -b dockerd < /dev/null > /mnt/wsl/shared-docker/dockerd.log 2>&1"
+
+echo "***installing minikube"
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
-echo "***kubectl"
+echo "***installing kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
