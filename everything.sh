@@ -2,7 +2,9 @@
 
 set +e
 
+cd ~/
 echo base packages
+pwd
 
 echo Pre-req for docker
 sudo apt install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg2
@@ -22,7 +24,7 @@ echo set some env vars in the bash profile - the following coming from the docke
 # DOCKER_DIR=/mnt/wsl/shared-docker
 # DOCKER_SOCK="$DOCKER_DIR/docker.sock"
 # export DOCKER_HOST="unix://$DOCKER_SOCK"
-cd ~/
+
 curl -fsSL https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/dockerhostfragment.txt 2>&1 | tee -a ~/.bashrc
 
 echo "alias k=kubectl" | tee -a ~/.bash_aliases
