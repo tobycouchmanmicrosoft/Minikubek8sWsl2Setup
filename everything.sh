@@ -3,6 +3,11 @@
 set +e
 
 cd ~/
+
+echo "configure git"
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+git config --global credential.https://dev.azure.com.useHttpPath true
+
 echo base packages
 pwd
 
