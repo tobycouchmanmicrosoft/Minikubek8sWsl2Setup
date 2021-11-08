@@ -4,9 +4,6 @@ set +e
 
 echo base packages
 
-#shouldn't be any residual bits of docker but anyway:
-sudo apt remove -y docker docker-engine docker.io containerd runc
-
 echo Pre-req for docker
 sudo apt install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg2
 source /etc/os-release
