@@ -35,6 +35,9 @@ echo "***kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
+echo "starting minikube"
+minikube start
+
 echo "***helm - from helm docs - https://helm.sh/docs/intro/install/#from-apt-debianubuntu"
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
@@ -45,3 +48,5 @@ sudo apt-get install -y helm
 echo "***install dapr"
 wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
 
+echo "*** init dapr"
+dapr init -k
