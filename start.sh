@@ -1,8 +1,4 @@
 set +e
-echo "starting docker"
-mkdir /mnt/wsl/shared-docker/
-sudo /mnt/c/Windows/System32/wsl.exe -d ubuntu sh -c "nohup sudo -b dockerd < /dev/null > /mnt/wsl/shared-docker/dockerd.log 2>&1"
-
 echo "starting minikube"
 minikube start
 
