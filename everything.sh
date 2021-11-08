@@ -13,6 +13,7 @@ curl -fsSL https://download.docker.com/linux/${ID}/gpg | sudo apt-key add -
 echo "deb [arch=amd64] https://download.docker.com/linux/${ID} ${VERSION_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/docker.list
 
 echo "***docker install"
+sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 echo "***add docker to user group"
@@ -28,7 +29,7 @@ sudo curl -o /etc/docker/daemon.json --create-dirs https://raw.githubusercontent
 
 echo "***minikube"
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo apt install -y minikube-linux-amd64 /usr/local/bin/minikube
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 echo "***helm - from helm docs - https://helm.sh/docs/intro/install/#from-apt-debianubuntu"
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
