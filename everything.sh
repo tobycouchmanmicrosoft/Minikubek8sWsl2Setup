@@ -3,7 +3,6 @@
 set +e
 
 echo base packages
-sudo apt update && sudo apt upgrade
 
 #shouldn't be any residual bits of docker but anyway:
 sudo apt remove -y docker docker-engine docker.io containerd runc
@@ -19,6 +18,7 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 echo add docker to user group
 sudo usermod -aG docker $USER
+sudo mkdir /mnt/wsl/shared-docker/
 
 echo set some env vars in the bash profile - the following coming from the dockerhostfragment.txt
 # DOCKER_DISTRO="Ubuntu"
@@ -26,6 +26,8 @@ echo set some env vars in the bash profile - the following coming from the docke
 # DOCKER_SOCK="$DOCKER_DIR/docker.sock"
 # export DOCKER_HOST="unix://$DOCKER_SOCK"
 curl -fsSL https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/dockerhostfragment.txt 2>&1 | tee -a ~/.bashrc
+
+echo "alias k=kubectl" | tee -a ~/.bash_aliases
 
 sudo curl -o /etc/docker/daemon.json --create-dirs https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/daemon.json
 
