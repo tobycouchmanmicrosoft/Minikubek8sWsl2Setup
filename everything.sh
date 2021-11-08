@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set +e
+
 echo base packages
 sudo apt update && sudo apt upgrade
 
