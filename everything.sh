@@ -30,9 +30,9 @@ sudo curl -o /etc/docker/daemon.json --create-dirs https://raw.githubusercontent
 
 echo minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install -y minikube-linux-amd64 /usr/local/bin/minikube
+sudo apt install -y minikube-linux-amd64 /usr/local/bin/minikube
 
-echo helm - from helm docs - https://helm.sh/docs/intro/install/#from-apt-debianubuntu
+echo "helm - from helm docs - https://helm.sh/docs/intro/install/#from-apt-debianubuntu"
 curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
 sudo apt-get install apt-transport-https --yes
 echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
