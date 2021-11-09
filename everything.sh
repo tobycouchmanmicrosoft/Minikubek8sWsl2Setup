@@ -23,7 +23,10 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 echo "***add docker to user group"
 sudo usermod -aG docker $USER
-sudo mkdir /mnt/wsl/shared-docker/
+sudo mkdir -p -- /mnt/wsl/shared-docker/
+
+# need to also add the above mkdir to the bashrc because if the wsl distro is shutdown the directory might be deleted
+sudo echo "sudo mkdir -p -- /mnt/wsl/shared-docker/" | tee -a ~/.bashrc
 
 echo "***set some env vars in the bash profile"
 sudo curl -fsSL https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/dockerhostfragment.txt 2>&1 | tee -a ~/.bashrc
