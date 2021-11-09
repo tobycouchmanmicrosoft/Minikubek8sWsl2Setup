@@ -24,3 +24,11 @@ Setting up docker, kubernetes, minikube, dapr and helm inside wsl2 Ubuntu
 5. `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash` (3 mins).
 
 You should now have a running Docker, Minikube, Dapr and Helm.
+
+### Verify
+1. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service.
+2. Verify dapr status with $`dapr status -k`
+3. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
+
+### Notes
+1. If you restart your linux distro ($`wsl --shutdown`) you can restart both docker and minikube with the following command `nohup sudo -b dockerd && minikube start`
