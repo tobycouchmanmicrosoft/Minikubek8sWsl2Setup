@@ -19,9 +19,9 @@ Setting up docker, kubernetes, minikube, dapr and helm inside wsl2 Ubuntu
 1. We need to restart WSL at this point, so first shut down WSL from your powershell session `wsl --shutdown Ubuntu`
 1. Run an ubuntu console or open from Windows Terminal if you have it (recommended). This will restart WSL.
 1. at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr and Helm. An alias for the 'kubectl' command is added so that you can invoke it with `k`, e.g. `k get all` instead of `kubectl get all`.
-3. When finished, at the $ prompt: `nohup sudo -b dockerd`. This will start up
-4. Load a new bash session (if in terminal simply open another ubuntu tab)
-5. `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash` (3 mins).
+1. When finished, at the $ prompt: `nohup sudo -b dockerd`. This should start up docker - in doing so it will write log text to standard out but should then return you to a prompt.
+1. Load a new bash session (if in terminal simply open another ubuntu tab)
+1. `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash` (3 mins).
 
 You should now have a running Docker, Minikube, Dapr and Helm.
 
