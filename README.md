@@ -32,3 +32,4 @@ You should now have a running Docker, Minikube, Dapr and Helm.
 
 ### Notes
 1. If you restart your linux distro ($`wsl --shutdown`) you can restart both docker and minikube with the following command `nohup sudo -b dockerd && minikube start`
+2. If you are building your docker images within WSL, you'll need to do this first: `eval $(minikube docker-env)`. This points the docker cli to the docker instance running in minikube. If you do not do this then when you deploy a helm chart, kubernetes will not be able to find the docker image.
