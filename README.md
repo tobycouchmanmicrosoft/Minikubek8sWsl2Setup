@@ -16,7 +16,7 @@ Setting up docker, kubernetes, minikube, dapr and helm inside wsl2 Ubuntu
 1. From admin powershell `wsl --install -d Ubuntu` to get a clean ubuntu distro in WSL2. Don't close your powershell session after - you'll need it.
 1. When prompted, create your user and password. It doesn't need to be the same as windows
 1. When at the `$` prompt you will need to update the distro with the latest packages which will take about 5 mins: `sudo apt update && sudo apt upgrade -y`. You will be prompted for the password you created in step 3.
-1. We need to restart WSL at this point, so first shut down WSL from your powershell session `wsl --shutdown Ubuntu`
+1. We need to restart WSL at this point, so first shut down WSL from your powershell session `wsl --terminate Ubuntu`
 1. Run an ubuntu console or open from Windows Terminal if you have it (recommended). This will restart WSL.
 1. at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr and Helm. An alias for the 'kubectl' command is added so that you can invoke it with `k`, e.g. `k get all` instead of `kubectl get all`.
 1. When finished, at the $ prompt: `nohup sudo -b dockerd`. This should start up docker - in doing so it will write log text to standard out but should then return you to a prompt.
@@ -31,5 +31,5 @@ You should now have a running Docker, Minikube, Dapr and Helm.
 3. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
 
 ### Notes
-1. If you restart your linux distro ($`wsl --shutdown`) you can restart both docker and minikube with the following command `nohup sudo -b dockerd && minikube start`
+1. If you restart your linux distro ($`wsl --shutdown` or `wsl --terminate ubntu`) you can restart both docker and minikube with the following command `nohup sudo -b dockerd && minikube start`
 2. If you are building your docker images within WSL, you'll need to do this first: `eval $(minikube docker-env)`. This points the docker cli to the docker instance running in minikube. If you do not do this then when you deploy a helm chart, kubernetes will not be able to find the docker image.
