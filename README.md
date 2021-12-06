@@ -29,7 +29,8 @@ You should now have a running Docker, Minikube, Dapr and Helm.
 
 ### Verify
 1. Verify that docker is up and running with the following command: $`docker images` - no errors should be reported.
-2. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service. > Note that this is the same as typing $`kubectl get all` with the kubectl aliased to 'k' for your convenience as part of step 7 above.
+2. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service. 
+> Note that this is the same as typing $`kubectl get all` with the kubectl aliased to 'k' for your convenience as part of step 7 above.
 4. Verify dapr status with $`dapr status -k`
 5. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
 
