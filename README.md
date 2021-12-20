@@ -4,9 +4,10 @@ Use the following guide to set up Docker, Kubernetes, Dapr, and helm running in 
 
 ## Pre-requisites
 1. WSL2 feature enabled in Windows. (https://docs.microsoft.com/en-us/windows/wsl/setup/environment)
-1. Uninstall Docker Desktop
-1. Uninstall Minikube for Windows
-1. (Recommended) Install Windows Terminal
+2. Run `wsl --set-default-version 2` to ensure new distro installations use WSL 2 rather than WSL 1 (the default).
+3. Uninstall Docker Desktop
+4. Uninstall Minikube for Windows
+5. (Recommended) Install Windows Terminal
 
 ### Clean up existing WSL Option 1
 > Try this if you've already used Docker Desktop integrated with WSL2 + Kubernetes. In many cases it may be cleaner to follow option 2 below.
