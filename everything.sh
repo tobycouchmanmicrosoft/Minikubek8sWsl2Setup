@@ -56,3 +56,11 @@ echo "configure git"
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 git config --global credential.https://dev.azure.com.useHttpPath true
 test -f "/mnt/c/Program Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe" || echo "git credential manager core doesn't exist - follow instructions at https://github.com/GitCredentialManager/git-credential-manager#option-2-install-from-source-helper-script"
+
+echo "starting docker"
+
+nohup sudo -b dockerd
+
+sleep 10
+
+echo -e "\e[1;36mYOU MUST NOW OPEN A NEW TERMINAL BEFORE STARTING MINIKUBE \e[0m"
