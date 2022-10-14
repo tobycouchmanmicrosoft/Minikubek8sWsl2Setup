@@ -61,11 +61,10 @@ echo "starting docker"
 
 nohup sudo -b dockerd
 
-echo "sleeping 20 seconds"
-sleep 20
+sleep 10
 
-echo "starting minikube"
-minikube start
+cat nohup
 
-echo "*** init dapr"
-dapr init -k
+source ${HOME}/.bashrc
+
+sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash
