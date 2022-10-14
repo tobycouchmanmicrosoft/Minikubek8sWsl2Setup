@@ -63,7 +63,7 @@ nohup sudo -b dockerd
 
 sleep 10
 
-cat nohup
+cat nohup.out
 
 source ${HOME}/.bashrc
 
