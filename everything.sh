@@ -56,15 +56,3 @@ echo "configure git"
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
 git config --global credential.https://dev.azure.com.useHttpPath true
 test -f "/mnt/c/Program Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe" || echo "git credential manager core doesn't exist - follow instructions at https://github.com/GitCredentialManager/git-credential-manager#option-2-install-from-source-helper-script"
-
-echo "starting docker"
-
-nohup sudo -b dockerd
-
-sleep 10
-
-cat nohup.out
-
-source ${HOME}/.bashrc
-
-sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash
