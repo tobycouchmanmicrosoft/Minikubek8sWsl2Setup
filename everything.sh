@@ -4,9 +4,8 @@ set +e
 
 cd ~/
 
-echo "configure git"
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
-git config --global credential.https://dev.azure.com.useHttpPath true
+echo "updating packages"
+sudo apt update && sudo apt upgrade -y
 
 echo base packages
 pwd
@@ -53,3 +52,18 @@ sudo apt-get install -y helm
 echo "***install dapr"
 wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
 
+echo "configure git"
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+git config --global credential.https://dev.azure.com.useHttpPath true
+test -f "/mnt/c/Program Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe" || echo "git credential manager core doesn't exist - follow instructions at https://github.com/GitCredentialManager/git-credential-manager#option-2-install-from-source-helper-script"
+
+echo "***install Azure CLI"
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+echo "starting docker"
+
+nohup sudo -b dockerd
+
+sleep 10
+
+echo -e "\e[1;36mYOU MUST NOW OPEN A NEW TERMINAL BEFORE STARTING MINIKUBE \e[0m"
