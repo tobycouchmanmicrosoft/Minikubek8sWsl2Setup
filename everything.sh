@@ -58,7 +58,7 @@ git config --global credential.https://dev.azure.com.useHttpPath true
 test -f "/mnt/c/Program Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe" || echo "git credential manager core doesn't exist - follow instructions at https://github.com/GitCredentialManager/git-credential-manager#option-2-install-from-source-helper-script"
 
 echo "***install Azure CLI"
-curl -L https://aka.ms/InstallAzureCli | bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 echo "starting docker"
 
