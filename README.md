@@ -22,12 +22,14 @@ Use the following guide to set up Docker, Kubernetes, Dapr, and helm running in 
 1. **Load a new bash session (if in terminal simply open another ubuntu tab)**
 
 ### Verify (in new terminal session)
+We can verify that everything installed correctly by starting minikube:
+
 1. `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash` This should start minikube and enable dapr inside the minikube cluster. (3 mins). You should now have a running Docker, Minikube, Dapr and Helm.
-1. Verify that docker is up and running with the following command: $`docker images` - no errors should be reported.
-1. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service. 
+2. Verify that docker is up and running with the following command: $`docker images` - no errors should be reported.
+3. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service. 
    > Note that this is the same as typing $`kubectl get all` with the kubectl aliased to 'k' for your convenience as part of step 7 above.
-1. Verify dapr status with $`dapr status -k`
-1. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
+4. Verify dapr status with $`dapr status -k`
+5. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
 
 ### Notes
 1. If you restart your linux distro ($`wsl --shutdown` or `wsl --terminate ubntu`) you can restart both docker and minikube with the following command `nohup sudo -b dockerd && minikube start`
