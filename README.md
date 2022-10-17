@@ -18,7 +18,7 @@ Use the following guide to set up Docker, Kubernetes, Dapr, and helm running in 
 1. From admin powershell `wsl --unregister Ubuntu`.
 1. From admin powershell `wsl --install -d Ubuntu` to get a clean ubuntu distro in WSL2. Don't close your powershell session after - you'll need it.
 1. When prompted, create your user and password. It doesn't need to be the same as windows.
-1. When Ubuntu installation has completed (< 3 mins network dependent) at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr, Helm, and the Azure CLI. An alias for the 'kubectl' command is added so that you can invoke it with `k`, e.g. `k get all` instead of `kubectl get all`.
+1. When Ubuntu installation has completed (< 3 mins network dependent) at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr, Helm, and the Azure CLI.
 1. **Load a new bash session (if in terminal simply open another ubuntu tab)**
 
 ### Verify (in new terminal session)
@@ -27,7 +27,7 @@ We can verify that everything installed correctly by starting minikube:
 1. `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/start.sh -O - | /bin/bash` This should start minikube and enable dapr inside the minikube cluster. (3 mins). You should now have a running Docker, Minikube, Dapr and Helm.
 2. Verify that docker is up and running with the following command: $`docker images` - no errors should be reported.
 3. Verify that kubernetes is up and running in minikube with the following command $`k get all` which should return the service/kubernetes service. 
-   > Note that this is the same as typing $`kubectl get all` with the kubectl aliased to 'k' for your convenience as part of step 7 above.
+   > Note that this is the same as typing $`kubectl get all` with the kubectl aliased to 'k' for your convenience as part of the installation above.
 4. Verify dapr status with $`dapr status -k`
 5. Initially there won't be any helm charts installed, but the $`helm list` command should return an empty list.
 
