@@ -19,6 +19,7 @@ Use the following guide to set up Docker, Kubernetes, Dapr, and helm running in 
 1. From admin powershell `wsl --install -d Ubuntu` to get a clean ubuntu distro in WSL2. Don't close your powershell session after - you'll need it.
 1. When prompted, create your user and password. It doesn't need to be the same as windows.
 1. When Ubuntu installation has completed (< 3 mins network dependent) at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr, Helm, and the Azure CLI.
+1. The powershell session is no longer required for the remaning steps - you can close it if you don't require it for anything else.
 1. **Load a new bash session (if in terminal simply open another ubuntu tab)**
 
 ### Verify (in new terminal session)
