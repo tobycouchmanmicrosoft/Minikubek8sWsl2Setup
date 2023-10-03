@@ -16,11 +16,12 @@ Use the following guide to set up Docker, Kubernetes, Dapr, and helm running in 
 ### Clean up existing WSL Option 2 (Nuke!)
 > Caution this will delete your Ubuntu WSL and all data for it (takes only seconds), so be careful to move any data from your existing distro that you want to keep before doing this.
 1. From admin powershell `wsl --unregister Ubuntu`.
-1. From admin powershell `wsl --install -d Ubuntu` to get a clean ubuntu distro in WSL2. Don't close your powershell session after - you'll need it.
-1. When prompted, create your user and password. It doesn't need to be the same as windows.
-1. When Ubuntu installation has completed (< 3 mins network dependent) at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr, Helm, and the Azure CLI.
-1. The powershell session is no longer required for the remaning steps - you can close it if you don't require it for anything else.
-1. **Load a new bash session (if in terminal simply open another ubuntu tab)**
+2. From admin powershell `wsl --install -d Ubuntu` to get a clean ubuntu distro in WSL2. Don't close your powershell session after - you'll need it.
+3. If running Ubuntu 22.04 you need to run `sudo update-alternatives --config iptables` and select **/usr/bin/iptables-legacy** otherwise docker engine will not start 
+4. When prompted, create your user and password. It doesn't need to be the same as windows.
+5. When Ubuntu installation has completed (< 3 mins network dependent) at the `$` prompt: `sudo wget -q https://raw.githubusercontent.com/tobycouchmanmicrosoft/Minikubek8sWsl2Setup/main/everything.sh -O - | /bin/bash` (5 mins). You will be prompted for your password. This installs Docker, Minikube, Kubectl, Dapr, Helm, and the Azure CLI.
+6. The powershell session is no longer required for the remaning steps - you can close it if you don't require it for anything else.
+7. **Load a new bash session (if in terminal simply open another ubuntu tab)**
 
 ### Verify (in new terminal session)
 We can verify that everything installed correctly by starting minikube:
